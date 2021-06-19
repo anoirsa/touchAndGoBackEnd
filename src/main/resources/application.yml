@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  mail:
+    protocol: smtp
+    host: smtp.gmail.com
+    port: 587
+    username: anoirsana15@gmail.com
+    password: vyfujeipphpinicd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
