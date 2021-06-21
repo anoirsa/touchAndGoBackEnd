@@ -30,14 +30,6 @@ public class SpringtouchgoApplication {
 			appUserRepository.save(new AppUser("jamal",passwordEncoder.encode("15111996"),"osp@gmail.com",
 					true,true,true,true,
 					AppUserRole.NORMAL_USER));
-			questionRepository.save(new
-					Question("question1","o1","o2","o3","o4", QuestionLevel.EASY, Category.SPORTS));
-			questionRepository.save(new
-					Question("question2","o1","o2","o3","o4", QuestionLevel.EASY,Category.SPORTS));
-			questionRepository.save(new
-					Question("question3","o1","o2","o3","o4", QuestionLevel.EASY,Category.SPORTS));
-			questionRepository.save(new
-					Question("question4","o1","o2","o3","o4", QuestionLevel.EASY,Category.SPORTS));
 
 		};
 	}

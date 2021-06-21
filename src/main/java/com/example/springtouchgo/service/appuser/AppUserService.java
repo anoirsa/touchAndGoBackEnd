@@ -1,5 +1,6 @@
 package com.example.springtouchgo.service.appuser;
 
+import com.example.springtouchgo.model.appuser.AppUser;
 import com.example.springtouchgo.repository.appuser.AppUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,4 +20,6 @@ public class AppUserService implements UserDetailsService {
                 () -> new UsernameNotFoundException(String.format("Username %s not found",username))
         );
     }
+
+
 }

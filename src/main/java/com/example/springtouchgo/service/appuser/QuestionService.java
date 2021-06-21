@@ -26,7 +26,7 @@ public class QuestionService {
         System.out.println(questionByQuestionLevel);
         Collections.shuffle(questionByQuestionLevel);
         List<Question> randomQuestions = new ArrayList<>();
-        for (int i = 0 ; i < 3 ; i++ ) randomQuestions.add(questionByQuestionLevel.get(i));
+        for (int i = 0 ; i < 16 ; i++ ) randomQuestions.add(questionByQuestionLevel.get(i));
         return randomQuestions;
     }
 

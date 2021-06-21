@@ -42,14 +42,15 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 .csrf().disable()
                 .cors().disable()
                 .authorizeRequests().antMatchers("/","/css*","/js/*").permitAll()
-                                     .antMatchers(HttpMethod.GET,"/management/api/v1/data/**").permitAll()
+                                    .antMatchers(HttpMethod.GET,"/management/api/v1/data/**").permitAll()
+                                    .antMatchers(HttpMethod.GET,"/management/api/v1/data/userget/**").permitAll()
                                     .antMatchers(HttpMethod.POST , "/api/v1/registration").permitAll()
                                     .antMatchers("/api/v1/registration/**").permitAll()
                                     .antMatchers(HttpMethod.POST,"/api/v1/user_and_scores").permitAll()
                                     .antMatchers(HttpMethod.GET,"/api/v1/user_and_scores/**").permitAll()
                                   //  .antMatchers("/management/api/v1/coners").permitAll()
                                     .antMatchers(HttpMethod.POST,"/management/api/v1/data").permitAll()
-                                  //  .antMatchers("/management/api/v1/coners").permitAll()
+                                //    .antMatchers("/management/api/v1/coners").permitAll()
                 .anyRequest().authenticated().and()
                 .formLogin().permitAll().successHandler((httpServletRequest, httpServletResponse, authentication) -> {
                    // System.out.println("We are handling the login sucess");
@@ -57,7 +58,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                     System.out.println("Username is " + username);
                     httpServletResponse.addCookie(new Cookie("username" , username));
                     httpServletResponse.sendRedirect("http://localhost:3000/gameboard");
-        } )//.defaultSuccessUrl("http://localhost:3000/gameboard",true)
+                 })
                 .failureHandler(new AuthenticationFailureHandler() {
                                     @Override
                                     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {

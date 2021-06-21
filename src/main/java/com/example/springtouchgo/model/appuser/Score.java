@@ -28,8 +28,13 @@ public class Score {
             generator = "score_sequence"
     )
     // A score must have an ID
+
+
     private Long id;
     private Integer scorePoints;
+    @Column(
+            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
+    )
     private LocalDateTime scoreDate;
     private String comment;
 
@@ -40,8 +45,11 @@ public class Score {
     )
     private AppUser appUser;
 
-    public Score(AppUser appUser, Integer scorePoints) {
+    public Score(AppUser appUser, Integer scorePoints,
+                 LocalDateTime scoreDate, String comment) {
         this.appUser = appUser;
         this.scorePoints = scorePoints;
+        this.scoreDate = scoreDate;
+        this.comment = comment;
     }
 }

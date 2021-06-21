@@ -49,7 +49,12 @@ public class ManagementBase {
         return questionService.getListOfQuestions(type);
     }
 
-    //@PreAuthorize("user_add")
-
+    @GetMapping(path = "/userget/{username}")
+    public
+    AppUser getAppUserDetail(@PathVariable("username") String username) {
+        AppUser appUser = appUserRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalStateException("No such user found"));
+        return appUser;
+    }
 
 }

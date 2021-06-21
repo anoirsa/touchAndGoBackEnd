@@ -16,9 +16,9 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*" , allowedHeaders = "*")
+
 // @PreAuthorize("")
-@RequestMapping("management/api/v1/coners")
+@RequestMapping("/management/api/v1/coners")
 
 public class SpecialController {
 
@@ -26,11 +26,12 @@ public class SpecialController {
 
 
     @GetMapping
+    @CrossOrigin(origins = "*" , allowedHeaders = "*")
    // @PreAuthorize()
     public String isLoggedIn(HttpServletRequest request , HttpServletResponse response) {
 
         //System.out.println("is authentication real " + );
-        System.out.println("Method executed");
+       response.setStatus(300);
         return "log";
         //return arrayList;
     }

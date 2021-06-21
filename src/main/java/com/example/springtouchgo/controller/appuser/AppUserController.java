@@ -1,6 +1,7 @@
 package com.example.springtouchgo.controller.appuser;
 
 
+import com.example.springtouchgo.model.appuser.AppUser;
 import com.example.springtouchgo.model.appuser.Score;
 import com.example.springtouchgo.model.appuser.ScoreEntry;
 import com.example.springtouchgo.service.appuser.ScoreService;
@@ -26,27 +27,28 @@ public class AppUserController {
     @PostMapping
     public @ResponseBody
     String handleScore(@RequestBody ScoreEntry scoreEntry) {
-        return scoreService.handleScore(scoreEntry.getUsername(), scoreEntry.getScore());
+        return scoreService.handleScore(scoreEntry);
     }
 
+
+    public
+    String addCommentToScore(@RequestBody String comment ,@PathVariable("id") Long id) {
+        return scoreService.addCommentToScore(comment, id);
+    }
 
     // annotation to be added later in the game
     //@PreAuthorize()
+
     @GetMapping(path = "/{username}")
     public @ResponseBody
-    List<Integer> getScores(@PathVariable String username)  {
-
-
+    List<Score> getScores(@PathVariable String username)  {
         return scoreService.getScoresOfUser(username);
     }
 
-    /**
-    @GetMapping(path = "/{loggedin}")
-    public  List<ScoreEntry> isLoggedIn() {
 
-        System.out.println("Method excuted");
-        return List.of(new ScoreEntry("121",2));
-    } **/
+
+
+
 
 
 
